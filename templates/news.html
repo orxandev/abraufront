@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+
+ <!--Breadcrumb-->
+ <div class="container">
+    <div class="row">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'index' %}">
+                    Ana Səhifə
+                </a>
+            </li>
+            <span>/</span>
+            <li class="breadcrumb-item">
+                Xəbərlər
+            </li>
+        </ul>
+    </div>
+</div>
+<!--Breadcrumb-->
+<!--Page Start-->
+
+<section id="news-page">
+    <div class="container">
+        <div class="row">
+            <div class="main-card">
+                <div class="col-6">
+                    <img src="{{news1.photo.url}}" alt="">
+                </div>
+                <div class="col-5">
+                    <h3 class="main-head">
+                        {{news1.title}}
+                    </h3>
+                    <p class="date">
+                        {{news1.tarix}}
+                    </p>
+                    <p class="text">
+                        {{news1.metn}}
+                    </p>
+                    <button class="btn">
+                        Ətraflı
+                    </button>
+                </div>
+            </div>
+            
+
+{% for items in news %}
+<div class="news-card item">
+    <a href="#">
+        <img src="{{items.photo.url}}" alt="">
+        <div class="news-text">
+            <h3 class="news-head">
+                {{items.title}}
+            </h3>
+            <a href="#" class="detail">
+                Ətraflı
+            </a>
+            <p class="news-date">
+                {{items.tarix}}
+            </p>
+        </div>
+    </a>
+</div>
+{% endfor %}
+
+
+
+       
+</section>
+<!--Page End-->
+
+{% endblock main %}
